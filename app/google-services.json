@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "779314138857",
+    "firebase_url": "https://app-demo-c7915-default-rtdb.firebaseio.com",
+    "project_id": "app-demo-c7915",
+    "storage_bucket": "app-demo-c7915.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779314138857:android:4d14beed5e944848a4ea78",
+        "android_client_info": {
+          "package_name": "com.akeem.eduhub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvMxxz-8JKJl2kCWq9K862iuUtSHpMvtk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

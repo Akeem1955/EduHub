@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.akeem.instructor.home.test.TestStudents">
+    <data>
+        <variable
+            name="handler"
+            type="com.akeem.instructor.home.assignment.AssignmentHandler" />
+        <variable
+            name="assign"
+            type="com.akeem.instructor.home.assignment.Assign" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:fillViewport="false">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/question_b"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:hint="@string/optional_second_question"
+                app:layout_constraintBottom_toTopOf="@+id/questions_c"
+                app:layout_constraintEnd_toEndOf="@+id/question_a"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/question_a"
+                app:layout_constraintTop_toBottomOf="@+id/question_a">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/question_b_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text|textAutoCorrect|textMultiLine"
+                    android:text="@={assign.question_b}"
+
+                    android:textColorHint="#8D6E63" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/topic"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="64dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="32dp"
+                android:hint="@string/topic_thermodynamics"
+                app:layout_constraintBottom_toTopOf="@+id/area_of_concentrate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/topic_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text|textAutoCorrect"
+                    android:text="@={assign.topic}"
+                    android:textColorHint="#8D6E63" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/area_of_concentrate"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:hint="@string/area_of_concentration_law_of_themodynamics"
+                app:layout_constraintBottom_toTopOf="@+id/instruction"
+                app:layout_constraintEnd_toEndOf="@+id/topic"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/topic"
+                app:layout_constraintTop_toBottomOf="@+id/topic">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/area_of_concentration_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text|textAutoCorrect"
+                    android:text="@={assign.concentrate}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/instruction"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:hint="@string/instructions"
+                app:layout_constraintBottom_toTopOf="@+id/question_a"
+                app:layout_constraintEnd_toEndOf="@+id/area_of_concentrate"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/area_of_concentrate"
+                app:layout_constraintTop_toBottomOf="@+id/area_of_concentrate">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/instruction_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text|textAutoComplete|textMultiLine"
+                    android:text="@={assign.instruction}"
+                    android:textColorHint="#8D6E63" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/question_a"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:hint="@string/question_what_is_adiabatic"
+                app:layout_constraintBottom_toTopOf="@+id/question_b"
+                app:layout_constraintEnd_toEndOf="@+id/instruction"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/instruction"
+                app:layout_constraintTop_toBottomOf="@+id/instruction">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/question_a_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text|textAutoComplete|textMultiLine"
+                    android:text="@={assign.question_a}"
+                    android:textColorHint="#8D6E63" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/set_assignment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:onClick="@{handler::onAssign}"
+                android:text="@string/set_assignment"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/questions_c"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/questions_c"
+                app:layout_constraintTop_toBottomOf="@+id/questions_c" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/questions_c"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:hint="@string/optional_question"
+                app:layout_constraintBottom_toTopOf="@+id/set_assignment"
+                app:layout_constraintEnd_toEndOf="@+id/question_b"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/question_b"
+                app:layout_constraintTop_toBottomOf="@+id/question_b">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/questions_c_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text|textAutoCorrect|textMultiLine"
+                    android:text="@={assign.question_c}"
+                    android:textColorHint="#8D6E63" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
