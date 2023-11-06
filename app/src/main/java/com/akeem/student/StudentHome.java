@@ -32,7 +32,7 @@ public class StudentHome extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_student_home);
         manager = getSupportFragmentManager();
         model = new ViewModelProvider(this).get(StudentViewModel.class);
-        fragments = Arrays.asList(new HomeFragment(), new ResourcesFragment(), new StudentResult(), new StudentAnalytic());
+        fragments = Arrays.asList(new HomeFragment(model), new ResourcesFragment(), new StudentResult(), new StudentAnalytic());
         manager.beginTransaction().replace(R.id.frag_view,fragments.get(0)).commitNow();
         handler = new HomeHandler(this,manager,fragments,binding);
         binding.setHandler(handler);
