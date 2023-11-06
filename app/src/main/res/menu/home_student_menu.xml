@@ -2,18 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:icon="@drawable/baseline_home_24"
-        android:id="@+id/home"
+        android:id="@+id/home_student"
         android:title="@string/home"/>
     <item
-        android:icon="@drawable/baseline_bar_chart_24"
-        android:id="@+id/result"
-        android:title="@string/result"/>
-    <item
-        android:icon="@drawable/baseline_data_exploration_24"
-        android:id="@+id/analytic"
-        android:title="@string/analytic"/>
-    <item
-        android:icon="@drawable/baseline_drive_file_move_24"
-        android:id="@+id/resources"
+        android:icon="@drawable/resources_a"
+        android:id="@+id/resources_student"
         android:title="@string/resources"/>
+    <item
+        android:icon="@drawable/carbon_result"
+        android:id="@+id/result_student"
+        android:title="@string/result"/>
+
+    <item
+        android:icon="@drawable/baseline_bar_chart_24"
+        android:id="@+id/analytic_student"
+        android:title="@string/analytic"/>
+
 </menu>

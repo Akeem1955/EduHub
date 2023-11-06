@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 import com.akeem.eduhub.R;
 
 
-public class ResultFragment extends Fragment {
+public class ResourcesFragment extends Fragment {
 
 
-    public ResultFragment() {
+    public ResourcesFragment() {
         // Required empty public constructor
     }
 

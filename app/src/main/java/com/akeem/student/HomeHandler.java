@@ -24,6 +24,7 @@ public class HomeHandler {
         this.manager = manager;
         this.fragments = fragments;
         this.binding = binding;
+        initialize();
     }
 
     private void initialize(){
@@ -40,7 +41,7 @@ public class HomeHandler {
 
     //Helper private method
     private void handleNavItemClickHelper(MenuItem item){
-        final int[] ids = {R.id.home_menu_instruct,R.id.resources_menu_instruct,R.id.analytic_menu_instruct};
+        final int[] ids = {R.id.home_student,R.id.resources_student,R.id.result_student,R.id.analytic_student};
         int id = item.getItemId();
         if(id == ids[0]){
             replaceFragment(fragments.get(0));
@@ -50,6 +51,9 @@ public class HomeHandler {
         }
         else if (id == ids[2]) {
             replaceFragment(fragments.get(2));
+        } else if (id == ids[3]) {
+            replaceFragment(fragments.get(3));
+
         }
     }
     private void replaceFragment(Fragment fragment){
