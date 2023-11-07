@@ -7,8 +7,9 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.akeem.background.EduHubProcessor;
+import com.akeem.instructor.home.assignment.Assign;
 import com.akeem.instructor.home.schedule_class.ScheduleModel;
-import com.akeem.student.parser.Grade;
+import com.akeem.instructor.home.test.Test;
 import com.akeem.student.parser.Student;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -25,8 +26,6 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Comparator;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -65,6 +64,12 @@ public class StudentViewModel extends ViewModel {
     private final EduHubProcessor processor = EduHubProcessor.getInstance();
     private Runnable runnable;
     private HashMap<String,List<String>> schedules = new HashMap<>();
+    private DatabaseReference assReference = FirebaseDatabase.getInstance().getReference("Assignments");
+    private DatabaseReference testReference = FirebaseDatabase.getInstance().getReference("Tests");
+    private MutableLiveData<List<Assign>> assignment_live = new MutableLiveData<>();
+    private MutableLiveData<List<Test>> test_live = new MutableLiveData<>();
+
+
 
 
     public StudentViewModel() {
@@ -139,6 +144,21 @@ public class StudentViewModel extends ViewModel {
 
     public void updateStudent(Student student){
         reference.child(student.getMatric_no()).setValue(student);
+    }
+
+    public MutableLiveData<List<Assign>> getAssignment(){
+        assReference.orderByKey().get().addOnSuccessListener(dataSnapshot -> {
+            GenericTypeIndicator<List<Assign>> type =new GenericTypeIndicator<List<Assign>>() {};
+            assignment_live.postValue(dataSnapshot.getValue(type));
+        });
+        return assignment_live;
+    };
+    public MutableLiveData<List<Test>> getTest(){
+        testReference.orderByKey().get().addOnSuccessListener(dataSnapshot -> {
+            GenericTypeIndicator<List<Test>> type =new GenericTypeIndicator<List<Test>>() {};
+            test_live.postValue(dataSnapshot.getValue(type));
+        });
+        return test_live;
     }
 
 

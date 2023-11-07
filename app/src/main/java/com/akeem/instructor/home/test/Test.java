@@ -9,6 +9,8 @@ public class Test extends BaseObservable {
     private String score_per_question;
     private String no_of_question;
     private String duration;
+    private String title;
+
 
 
     public Test(){}
@@ -56,6 +58,13 @@ public class Test extends BaseObservable {
         this.duration = duration;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
 
 }

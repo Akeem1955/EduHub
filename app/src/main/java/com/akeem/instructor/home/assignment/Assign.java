@@ -12,6 +12,7 @@ public class Assign extends BaseObservable {
     private String question_a;
     private String question_b;
     private String question_c;
+    private String name;
 
 
     public Assign() {
@@ -66,5 +67,13 @@ public class Assign extends BaseObservable {
 
     public void setQuestion_c(String question_c) {
         this.question_c = question_c;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

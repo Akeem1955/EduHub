@@ -12,5 +12,10 @@ public class Setup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup);
+        //duration
+        //topic
+        //concentrate
+        //no of question
+        //score_per_question
     }
 }
