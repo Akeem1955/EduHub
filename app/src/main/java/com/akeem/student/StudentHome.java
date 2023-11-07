@@ -16,6 +16,7 @@ import com.akeem.student.home.HomeFragment;
 import com.akeem.student.parser.Student;
 import com.akeem.student.resources.ResourcesFragment;
 import com.akeem.student.result.StudentResult;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Arrays;
 import java.util.List;
@@ -36,13 +37,18 @@ public class StudentHome extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_student_home);
         manager = getSupportFragmentManager();
         model = new ViewModelProvider(this).get(StudentViewModel.class);
-        fragments = Arrays.asList(new HomeFragment(model), new ResourcesFragment(), new StudentResult(), new StudentAnalytic());
+        fragments = Arrays.asList(new HomeFragment(model,this),
+                new ResourcesFragment(model, this),
+                new StudentResult(model,getIntent().getStringExtra("id")),
+                new StudentAnalytic());
         manager.beginTransaction().replace(R.id.frag_view,fragments.get(0)).commitNow();
         handler = new HomeHandler(this,manager,fragments,binding);
         binding.setHandler(handler);
         model.getStudent(getIntent().getStringExtra("id")).observe(this, student -> {
             if (student != null){
                 Istudent = new Student();
+            }else {
+                Snackbar.make(binding.getRoot(),"Network Error Unable to Connect the internet..",Snackbar.LENGTH_LONG).show();
             }
         });
     }

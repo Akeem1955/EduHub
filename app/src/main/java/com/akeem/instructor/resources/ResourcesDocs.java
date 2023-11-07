@@ -25,6 +25,7 @@ import com.akeem.instructor.InsrtuctorHome;
 import com.akeem.instructor.InstructorViewModel;
 import com.akeem.instructor.home.interfaces.OnResClick;
 import com.ashiri.instuctor.Instructor;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -69,10 +70,12 @@ public class ResourcesDocs extends Fragment {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 if (adapter.getData() == null){
-
+                    Snackbar.make(binding.getRoot(),"No Resources Available Try Uploading Some",Snackbar.LENGTH_SHORT).show();
                 } else if (adapter.getData().isEmpty()) {
-
-                }else {}
+                    Snackbar.make(binding.getRoot(),"No Resources Available Try Uploading Some",Snackbar.LENGTH_SHORT).show();
+                }else {
+                    adapter.filter(query);
+                }
                 return false;
             }
 
@@ -98,7 +101,6 @@ public class ResourcesDocs extends Fragment {
         failed.setContentView(R.layout.failed_lay);
         TextView errMsg = failed.findViewById(R.id.failed_msg);
         errMsg.setText(R.string.unable_to_load_resources_check_your_internet_connection_and_try_again);
-
     }
 
     @SuppressLint("NotifyDataSetChanged")

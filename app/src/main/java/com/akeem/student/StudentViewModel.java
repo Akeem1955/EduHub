@@ -10,6 +10,7 @@ import com.akeem.background.EduHubProcessor;
 import com.akeem.instructor.home.assignment.Assign;
 import com.akeem.instructor.home.schedule_class.ScheduleModel;
 import com.akeem.instructor.home.test.Test;
+import com.akeem.instructor.resources.ResourcesModel;
 import com.akeem.student.parser.Student;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -22,6 +23,7 @@ import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.ListResult;
+import com.google.firebase.storage.StorageMetadata;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
@@ -48,8 +50,8 @@ public class StudentViewModel extends ViewModel {
 
 
     // other needed variables
-    private final MutableLiveData<Student> student = new MutableLiveData<>(null);
-    private final MutableLiveData<List<Uri>> uri_live = new MutableLiveData<>(null);
+    private final MutableLiveData<Student> student = new MutableLiveData<>();
+    private final MutableLiveData<List<ResourcesModel>> uri_live = new MutableLiveData<>(new ArrayList<>());
     private final MutableLiveData<List<ScheduleModel>> schedule_live = new MutableLiveData<>(null);
     private final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Students");
     private final DatabaseReference schedule_reference = FirebaseDatabase.getInstance().getReference("Schedules");
@@ -57,7 +59,7 @@ public class StudentViewModel extends ViewModel {
     private ValueEventListener listener;
     private final ValueEventListener schedule_listen;
     private List<StorageReference> sReferences;
-    private final List<Uri> uris = new ArrayList<>();
+    private final List<ResourcesModel> uris = new ArrayList<>();
     private OnSuccessListener<ListResult> success;
     private OnFailureListener failure;
     private OnSuccessListener<Uri> uri_listener;
@@ -68,6 +70,9 @@ public class StudentViewModel extends ViewModel {
     private DatabaseReference testReference = FirebaseDatabase.getInstance().getReference("Tests");
     private MutableLiveData<List<Assign>> assignment_live = new MutableLiveData<>();
     private MutableLiveData<List<Test>> test_live = new MutableLiveData<>();
+    private OnSuccessListener<StorageMetadata> metadata_listener;
+    private List<String> metadata = new ArrayList<>();
+    private List<Uri> uriList = new ArrayList<>();
 
 
 
@@ -90,17 +95,6 @@ public class StudentViewModel extends ViewModel {
             }
         };
 
-        //failure listener for get allresources task
-        failure = e -> {
-
-        };
-        //uri listener
-        //comment here
-        uri_listener = uri -> {
-            uris.add(uri);
-            uri_live.postValue(uris);
-        };
-
         //value event listener
         listener = new ValueEventListener() {
             @Override
@@ -110,28 +104,49 @@ public class StudentViewModel extends ViewModel {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+                student.postValue(null);
 
             }
         };
 
-        //Sucess listener
 
+        uri_listener = uri -> {
+            uriList.add(uri);
+            uris.clear();
+            for (String s:metadata){
+                for (Uri u:uriList) {
+                    ResourcesModel model =new ResourcesModel();
+                    model.setDescription(s.split("!@#%&")[0]);
+                    model.setUri(u);
+                    model.setMimetype(s.split("!@#%&")[1]);
+                    uris.add(model);
+                }
+            }
+            uri_live.postValue(uris);
+        };
+
+        metadata_listener = storageMetadata -> {
+            metadata.add( storageMetadata.getCustomMetadata("description") + "!@#%&" +storageMetadata.getContentType());
+            storageMetadata.getReference().getDownloadUrl().addOnSuccessListener(uri_listener);
+        };
         success = listResult -> {
             sReferences = listResult.getItems();
-           runnable = () -> {
-               for (StorageReference sr: sReferences) {
-                   sr.getDownloadUrl().addOnSuccessListener(uri_listener);
-               }
-           };
-            processor.getHandler().post(runnable);
+            if(sReferences.isEmpty()){
+                uri_live.postValue(new ArrayList<>());
+                return;
+            }
+            for (StorageReference sr: sReferences) {
+                sr.getMetadata().addOnSuccessListener(metadata_listener);
+            }
         };
+        failure = e -> uri_live.postValue(null);
     }
 
     public MutableLiveData<Student> getStudent(String matric_no){
         reference.child(matric_no).addValueEventListener(listener);
         return student;
     }
-    public MutableLiveData<List<Uri>> getAllResources(){
+    public MutableLiveData<List<ResourcesModel>> getAllResources(){
         Task<ListResult> task=sRefernce.list(50);
         task.addOnFailureListener(failure);
         task.addOnSuccessListener(success);

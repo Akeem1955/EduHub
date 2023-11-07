@@ -110,6 +110,8 @@ public class InstructorViewModel extends ViewModel {
             }
         };
         //getting resources listener
+
+
         uri_listener = uri -> {
             uriList.add(uri);
             uris.clear();

@@ -44,7 +44,7 @@ public class VidViewMode extends ViewModel {
     public void uploadToFirebase(InputStream inputStream){
         this.inputStream = inputStream;
         StorageMetadata metadata = new StorageMetadata.Builder()
-                .setCustomMetadata(upload.getTitle(), upload.getTitle() +"\n" +upload.getMaterial_info())
+                .setCustomMetadata("description", upload.getTitle() +"\n" +upload.getMaterial_info())
                 .setContentType("video/*")
                 .build();
 

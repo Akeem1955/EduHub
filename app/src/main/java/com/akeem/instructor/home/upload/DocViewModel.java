@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageMetadata;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
@@ -30,8 +31,12 @@ public class DocViewModel extends ViewModel {
     private final StorageReference reference = FirebaseStorage.getInstance().getReference("Materials");
     private final Upload upload = new Upload();
     public void uploadToFirebase(InputStream inputStream){
+        StorageMetadata metadata = new StorageMetadata.Builder()
+                .setCustomMetadata("description", upload.getTitle() +"\n" +upload.getMaterial_info())
+                .setContentType("application/pdf")
+                .build();
         StorageReference child = reference.child(Calendar.getInstance().getTime().toString());
-        UploadTask task = child.putStream(inputStream);
+        UploadTask task = child.putStream(inputStream,metadata);
         task.addOnFailureListener(failureListener).addOnSuccessListener(successListener);
     }
 
