@@ -1,12 +1,16 @@
 package com.akeem.instructor.home;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.view.LayoutInflater;
@@ -20,6 +24,8 @@ import com.akeem.instructor.InstructorHandler;
 import com.akeem.instructor.InstructorViewModel;
 import com.akeem.instructor.home.assignment.AssignmentStudent;
 import com.akeem.instructor.home.schedule_class.ClassSchedules;
+import com.akeem.instructor.home.schedule_class.ScheduleAdapter;
+import com.akeem.instructor.home.schedule_class.ScheduleModel;
 import com.akeem.instructor.home.test.TestStudents;
 import com.akeem.instructor.home.upload.DocumentsUpload;
 import com.akeem.instructor.home.upload.VideoUpload;
@@ -36,15 +42,17 @@ public class InstructorHome extends Fragment {
     private Intent intent;
     private InstructorHandler handler;
     private BottomSheetDialog dialog;
-    private  CurrentClassBinding currentbinding;
+    public static CurrentClassBinding currentbinding;
+    private String id;
 
 
 
-    public InstructorHome(InstructorViewModel viewModel, InstructorHandler handler) {
+    public InstructorHome(InstructorViewModel viewModel, InstructorHandler handler,String id) {
         this.viewModel = viewModel;
         this.handler = handler;
         initializeAdapter();
         adapter = new HAdapter(data);
+        this.id = id;
     }
     public InstructorHome(){
         initializeAdapter();
@@ -55,9 +63,12 @@ public class InstructorHome extends Fragment {
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         dialog = new BottomSheetDialog(context);
-        CurrentClassBinding currentbinding = DataBindingUtil.inflate(getLayoutInflater(),R.layout.current_class,null,false);
+        currentbinding = DataBindingUtil.inflate(getLayoutInflater(),R.layout.current_class,null,false);
         currentbinding.setHandler(handler);
-        //currentbinding.setScheduleModel();
+        viewModel.getClassSchedule(id).observe(this, scheduleModels -> {
+            if (scheduleModels.isEmpty())return;
+            currentbinding.setScheduleModel(scheduleModels.get(0));
+        });
         dialog.setContentView(currentbinding.getRoot());
     }
 
@@ -89,6 +100,13 @@ public class InstructorHome extends Fragment {
         }));
         data.add(new HModel("Current Class", R.drawable.arcticons_netease_open_class, v -> {
             dialog.show();
+            new AlertDialog.Builder(requireContext())
+                    .setMessage("Turn On Your Personal Hotspot for Attendance And setup Your Hotspot Name to A Unique one")
+                    .setPositiveButton("Turn On And Setup", (dialog, which) -> {
+                        Intent tetherSettingsIntent = new Intent();
+                        tetherSettingsIntent.setComponent(new ComponentName("com.android.settings", "com.android.settings.TetherSettings"));
+                        startActivity(tetherSettingsIntent);
+                    }).show();
         }));
         data.add(new HModel("Set Assignment", R.drawable.ass, v -> {
             intent = new Intent(requireContext(), AssignmentStudent.class);

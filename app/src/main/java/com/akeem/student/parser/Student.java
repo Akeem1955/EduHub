@@ -10,10 +10,7 @@ public class Student {
     private HashMap<String,Integer> assignment_score;
     private HashMap<String,Integer> total_score;
     private HashMap<String,Integer> test_score;
-    private List<String> subject;
     private HashMap<String, Integer> attendance;
-    private HashMap<String,String> lecture_id;
-
     public Student() {
     }
 
@@ -66,13 +63,6 @@ public class Student {
         this.test_score = test_score;
     }
 
-    public List<String> getSubject() {
-        return subject;
-    }
-
-    public void setSubject(List<String> subject) {
-        this.subject = subject;
-    }
 
     public HashMap<String, Integer> getAttendance() {
         return attendance;

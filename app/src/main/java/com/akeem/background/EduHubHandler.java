@@ -39,7 +39,7 @@ public class EduHubHandler extends Handler {
         payload.setMsg(msg);
         payload.setTitle(title);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://9534-102-88-36-6.ngrok-free.app/")
+                .baseUrl("https://ca8e–102–91–4–174.ngrok-free.app/")
                 .addConverterFactory(GsonConverterFactory.create()).build();
         NotifyStudent student =retrofit.create(NotifyStudent.class);
         Call<String> call = student.notifyStudent(payload);

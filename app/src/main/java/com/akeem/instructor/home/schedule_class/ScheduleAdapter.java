@@ -17,7 +17,7 @@ import java.util.List;
 
 public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHolder> {
     private  List<String> mod;
-    private  List<ScheduleModel> data=new ArrayList<>();
+    public  static List<ScheduleModel> data=new ArrayList<>();
     private int start = 0;
     private boolean end = false;
     private boolean refresh = true;

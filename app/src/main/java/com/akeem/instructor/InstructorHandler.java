@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
@@ -16,6 +17,7 @@ import androidx.lifecycle.Observer;
 import com.akeem.eduhub.R;
 import com.akeem.eduhub.databinding.ActivityInsrtuctorHomeBinding;
 import com.akeem.eduhub.databinding.CancelClassBinding;
+import com.akeem.instructor.home.InstructorHome;
 import com.akeem.instructor.home.schedule_class.ScheduleModel;
 import com.akeem.instructor.parser.Cancel;
 
@@ -42,9 +44,20 @@ public class InstructorHandler {
         cancelBinding.setCancel(cancel);
         cancelBinding.setHandler(this);
         dialog.setContentView(cancelBinding.getRoot());
+        dialog.show();
     }
     public void classCancelled(View view){
-        ivm.notifyStudent(cancel.getReason(),location.toUpperCase() + " Class Cancelled");
+        ivm.notifyStudent(cancel.getReason(), "Class Cancelled");
+    }
+    public void startAttendance(View view){
+        if( InstructorHome.currentbinding.hotspotSsid.getText().equals("")){
+            Toast.makeText(ctx,"SSID Needed",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        ivm.notifyStudent("Class is OnGoing Quickly Take Your Attendance if you Are Present","Class Ongoing");
+        ivm.setLecturer_id(location,InstructorHome.currentbinding.hotspotSsid.getText().toString());
+        ivm.setCurrent_class(location);
+
     }
 
 

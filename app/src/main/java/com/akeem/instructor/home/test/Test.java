@@ -10,6 +10,7 @@ public class Test extends BaseObservable {
     private String no_of_question;
     private String duration;
     private String title;
+    private String instructor_id;
 
 
 
@@ -66,5 +67,11 @@ public class Test extends BaseObservable {
         this.title = title;
     }
 
+    public String getInstructor_id() {
+        return instructor_id;
+    }
 
+    public void setInstructor_id(String instructor_id) {
+        this.instructor_id = instructor_id;
+    }
 }

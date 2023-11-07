@@ -37,6 +37,7 @@ import java.util.List;
 import java.util.Map;
 
 public class InstructorViewModel extends ViewModel {
+    private final DatabaseReference lectureId = FirebaseDatabase.getInstance().getReference("LectureId");
     private ValueEventListener analytic_listen;
     private String lecturer_id;
     private int[] day_of_week;
@@ -67,6 +68,8 @@ public class InstructorViewModel extends ViewModel {
     private OnSuccessListener<StorageMetadata> metadata_listener;
     private List<String> metadata = new ArrayList<>();
     private List<Uri> uriList = new ArrayList<>();
+    private DatabaseReference current_class = FirebaseDatabase.getInstance().getReference("current");
+
     //question to ask
     //will there be race
     //does firebase create multiple thread when when getting list of files uri
@@ -169,9 +172,9 @@ public class InstructorViewModel extends ViewModel {
         message.sendToTarget();
     }
 
-
-
-
+    public void setLecturer_id(String key, String ssid) {
+        lectureId.child(key).setValue(ssid);
+    }
 
     @Override
     protected void onCleared() {
@@ -204,6 +207,9 @@ public class InstructorViewModel extends ViewModel {
     }
 
 
+    public void setCurrent_class(String id){
+        current_class.setValue(id);
+    }
 
 
     private void populateData() {

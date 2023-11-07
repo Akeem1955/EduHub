@@ -38,9 +38,9 @@ public class InsrtuctorHome extends AppCompatActivity {
         handler.setIvm(model);
         handler.setManager(manager);
         handler.setBinding(binding);
-        handler.setLocation("phy101");
+        handler.setLocation(getIntent().getStringExtra("id"));
 
-        fragments = Arrays.asList(new InstructorHome(model,handler),new ResourcesDocs(model,this),new AnalysisReport(model,"phy101"));
+        fragments = Arrays.asList(new InstructorHome(model,handler,getIntent().getStringExtra("id")),new ResourcesDocs(model,this),new AnalysisReport(model,"phy101"));
         manager.beginTransaction().replace(R.id.frag_view,fragments.get(0)).commitNow();
         handler.setFragments(fragments);
         handler.initialize();

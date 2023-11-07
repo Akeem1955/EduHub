@@ -93,12 +93,12 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/bg_btn"
-                android:text="Cancel Class"
                 android:onClick="@{handler::cancelClass}"
+                android:text="Cancel Class"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/button6"
-                app:layout_constraintTop_toBottomOf="@+id/venues" />
+                app:layout_constraintTop_toBottomOf="@+id/hotspot_ssid" />
 
             <Button
                 android:id="@+id/button6"
@@ -109,12 +109,13 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
                 android:background="@drawable/bg_btn"
+                android:onClick="@{handler::startAttendance}"
                 android:text="Start Attendance "
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/button5"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/venues" />
+                app:layout_constraintTop_toBottomOf="@+id/hotspot_ssid" />
 
             <TextView
                 android:id="@+id/textView"
@@ -129,6 +130,22 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/hotspot_ssid"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/spinner_custom"
+                android:ems="10"
+                android:hint="Hotspot SSID"
+                android:inputType="text"
+                android:padding="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/venues" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

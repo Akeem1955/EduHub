@@ -73,6 +73,8 @@ public class StudentViewModel extends ViewModel {
     private OnSuccessListener<StorageMetadata> metadata_listener;
     private List<String> metadata = new ArrayList<>();
     private List<Uri> uriList = new ArrayList<>();
+    private final DatabaseReference lectureId = FirebaseDatabase.getInstance().getReference("LectureId");
+    private DatabaseReference current_class = FirebaseDatabase.getInstance().getReference("current");
 
 
 
@@ -176,6 +178,21 @@ public class StudentViewModel extends ViewModel {
         return test_live;
     }
 
+    public MutableLiveData<String> getCurrentClass(){
+        MutableLiveData<String> current = new MutableLiveData<>();
+        current_class.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                current.postValue(snapshot.getValue(String.class));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        return current;
+    }
 
 
 
@@ -215,6 +232,22 @@ public class StudentViewModel extends ViewModel {
             }
         }
         populateData();
+    }
+    public MutableLiveData<HashMap<String, String>> getlecturessid(){
+        MutableLiveData<HashMap<String,String>> map= new MutableLiveData<>();
+        lectureId.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                GenericTypeIndicator<HashMap<String,String>> indicator = new GenericTypeIndicator<HashMap<String, String>>() {};
+                map.postValue( snapshot.getValue(indicator));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        return map;
     }
 
 

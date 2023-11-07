@@ -71,18 +71,19 @@
                 android:layout_height="match_parent">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView"
+                    android:id="@+id/currentclass_card"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
+                    android:visibility="gone"
                     app:cardBackgroundColor="#673AB7"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="15dp"
                     app:layout_constraintEnd_toStartOf="@+id/take_attendance"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView43">
+                    app:layout_constraintTop_toBottomOf="@+id/ongoing_class_label">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -181,7 +182,7 @@
                     android:typeface="monospace"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView" />
+                    app:layout_constraintTop_toBottomOf="@+id/currentclass_card" />
 
                 <TextView
                     android:id="@+id/assign_tv"
@@ -227,12 +228,13 @@
                     android:textColor="#00796B"
                     android:textStyle="italic"
                     android:typeface="monospace"
-                    app:layout_constraintBottom_toBottomOf="@+id/cardView"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/currentclass_card"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/cardView" />
+                    app:layout_constraintTop_toTopOf="@+id/currentclass_card" />
 
                 <TextView
-                    android:id="@+id/textView43"
+                    android:id="@+id/ongoing_class_label"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
@@ -241,6 +243,7 @@
                     android:textColor="#9C27B0"
                     android:textSize="16sp"
                     android:textStyle="italic"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
