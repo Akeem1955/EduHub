@@ -33,7 +33,6 @@
     <string name="question_what_is_adiabatic">Question(What is Adiabatic)</string>
     <string name="optional_question">Optional Question</string>
     <string name="duration_in_minute">Duration (in Minute)</string>
-    <string name="edu_hub_server"></string>
     <string name="back_button">back_button</string>
     <string name="pick_document">Pick Document</string>
     <string name="scheduled_class">Scheduled Class</string>
@@ -43,7 +42,7 @@
     <string name="todo">TODO</string>
     <string name="your_total_score">Your Test Score</string>
     <string name="_18">18</string>
-    <string name="_0_20">0 - 20</string>
+    <string name="_0_20">0 – 20</string>
     <string name="performance_average">Performance : Average</string>
     <string name="score">Score</string>
     <string name="subjects">Subjects</string>
@@ -52,9 +51,9 @@
     <string name="score_category">Score Category</string>
     <string name="attendance_id">Attendance Tracking</string>
     <string name="instruction">Instruction:\nPlease take a moment to read these instructions carefully and thoroughly.</string>
-    <string name="reason_here">Reason here...</string>
+    <string name="reason_here">Reason here…</string>
     <string name="please_provide_reason_for_cancellation">Please Provide Reason for cancellation</string>
-    <string name="cancel">cancel</string>
+    <string name="cancel">Cancel</string>
     <string name="please_dont_exit_the_app">📂 Please don\'t exit the app while uploading files. Instead, you can simply minimize the app and your uploads will continue in the background. We\'ve made it easy for you to multitask and stay productive! 🚀</string>
     <string name="unable_to_set_assignment_check_your_internet_connection_and_try_again">Unable To set Assignment Check Your Internet Connection And Try Again</string>
     <string name="correlation_betwen_attendance_and_score">*Correlation Between Attendance And Score*</string>
@@ -67,11 +66,11 @@
     <string name="chat_url">https://api.openai.com/v1/</string>
     <string name="oh_no_the_resource_cupboard_is_bare_but_don_t_worry_we_ll_refill_it_soon_stay_tuned_quot">Oh no, the resource cupboard is bare! 🙁 But don\'t worry, we\'ll refill it soon. 🔄 Stay tuned!\"</string>
     <string name="unable_to_load_resources_check_your_internet_connection_and_try_again">Unable to load Resources Check Your Internet Connection And try Again…</string>
-    <string name="check_your_internet_connection_and_try_again">Check Your Internet COnnection And Try Again...</string>
+    <string name="check_your_internet_connection_and_try_again">Check Your Internet COnnection And Try Again…</string>
     <string name="password">Password</string>
     <string name="matric_no_lecturerid">Matric_no / LecturerId</string>
-    <string name="network_error_please_check_your_internet_connection_and_try_again">Network Error Please Check Your Internet Connection And Try Again...</string>
-
+    <string name="network_error_please_check_your_internet_connection_and_try_again">Network Error Please Check Your Internet Connection And Try Again…</string>
     <array name="courses">{""}</array>
+    <string name="edu_hub_url">https://ca8e–102–91–4–174.ngrok-free.app/</string>
 
 </resources>

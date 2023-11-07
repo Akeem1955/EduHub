@@ -4,7 +4,7 @@ public class Instructor {
     private String id;
     private String password;
 
-    private String name;
+
 
 
     public String getId() {
@@ -23,11 +23,4 @@ public class Instructor {
         this.password = password;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

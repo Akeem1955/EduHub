@@ -28,24 +28,25 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout"
-                android:layout_width="409dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="73dp"
+                android:layout_marginTop="64dp"
                 android:layout_marginEnd="8dp"
                 android:hint="@string/matric_no_lecturerid"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/radioGroup2">
+                app:layout_constraintTop_toBottomOf="@+id/who">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout2"
-                android:layout_width="409dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="58dp"
@@ -57,13 +58,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <RadioGroup
-                android:id="@+id/radioGroup2"
+                android:id="@+id/who"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -74,22 +76,26 @@
                 app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView4">
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/student"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:background="@drawable/spinner_custom"
+                    android:padding="5dp"
                     android:text="Login As Student" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/lecturer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:background="@drawable/spinner_custom"
+                    android:padding="5dp"
                     android:text="Login As Lecturer" />
             </RadioGroup>
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/login"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
