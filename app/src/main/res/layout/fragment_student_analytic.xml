@@ -57,9 +57,8 @@
                 android:rotation="-90"
                 android:text="@string/score"
                 android:textColor="#512DA8"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold|italic"
-                android:typeface="monospace"
                 app:layout_constraintBottom_toBottomOf="@+id/line_container"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/line_container" />
@@ -128,9 +127,8 @@
                 android:rotation="-90"
                 android:text="@string/score"
                 android:textColor="#512DA8"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold|italic"
-                android:typeface="monospace"
                 app:layout_constraintBottom_toBottomOf="@+id/bar_container"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/bar_container" />

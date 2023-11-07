@@ -70,6 +70,7 @@
     <string name="check_your_internet_connection_and_try_again">Check Your Internet COnnection And Try Again...</string>
     <string name="password">Password</string>
     <string name="matric_no_lecturerid">Matric_no / LecturerId</string>
+    <string name="network_error_please_check_your_internet_connection_and_try_again">Network Error Please Check Your Internet Connection And Try Again...</string>
 
     <array name="courses">{""}</array>
 

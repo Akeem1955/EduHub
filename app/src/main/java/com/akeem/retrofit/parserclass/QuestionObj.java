@@ -3,7 +3,6 @@ package com.akeem.retrofit.parserclass;
 import java.util.ArrayList;
 
 public class QuestionObj {
-    private int id;
     private String question;
     private ArrayList<String> options;
     private String answer;
@@ -12,13 +11,6 @@ public class QuestionObj {
     public QuestionObj() {
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getQuestion() {
         return question;

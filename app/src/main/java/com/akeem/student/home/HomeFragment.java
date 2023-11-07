@@ -55,10 +55,10 @@ public class HomeFragment extends Fragment {
                 //score_per_question
                 Intent intent = new Intent(context, Setup.class);
                 intent.putExtra("duration",t.getDuration());
-                intent.putExtra("topic",t.getDuration());
-                intent.putExtra("concentrate",t.getDuration());
-                intent.putExtra("no_of_question",t.getDuration());
-                intent.putExtra("score_per_question",t.getDuration());
+                intent.putExtra("topic",t.getTopic());
+                intent.putExtra("concentrate",t.getConcentrate());
+                intent.putExtra("no_of_question",t.getNo_of_question());
+                intent.putExtra("score_per_question",t.getScore_per_question());
             }
         });
         A_adapter = new AssignmentAdapter(null, new OnAssignmentScreen() {

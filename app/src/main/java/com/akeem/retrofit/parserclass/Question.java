@@ -1,34 +1,20 @@
 package com.akeem.retrofit.parserclass;
 
 
+import java.util.List;
 
 public class Question{
-    private int id;
-    private String question;
-    private String answer;
-    public Question(){}
+    private List<QuestionObj> questionObjList;
 
-    public int getId() {
-        return id;
+    public Question() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public List<QuestionObj> getQuestionObjList() {
+
+        return questionObjList;
     }
 
-    public String getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setQuestionObjList(List<QuestionObj> questionObjList) {
+        this.questionObjList = questionObjList;
     }
 }

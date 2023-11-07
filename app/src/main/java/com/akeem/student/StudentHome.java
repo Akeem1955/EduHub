@@ -40,7 +40,7 @@ public class StudentHome extends AppCompatActivity {
         fragments = Arrays.asList(new HomeFragment(model,this),
                 new ResourcesFragment(model, this),
                 new StudentResult(model,getIntent().getStringExtra("id")),
-                new StudentAnalytic());
+                new StudentAnalytic(model,getIntent().getStringExtra("id")));
         manager.beginTransaction().replace(R.id.frag_view,fragments.get(0)).commitNow();
         handler = new HomeHandler(this,manager,fragments,binding);
         binding.setHandler(handler);
