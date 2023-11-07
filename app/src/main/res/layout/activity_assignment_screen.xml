@@ -3,6 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.akeem.student.home.assignment.AssignmentScreen">
+    <data>
+        <variable
+            name="assign"
+            type="com.akeem.instructor.home.assignment.Assign" />
+        <variable
+            name="handler"
+            type="com.akeem.student.home.assignment.AssignmentHandler" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,6 +22,7 @@
             android:layout_height="wrap_content"
             android:background="#673AB7"
             android:text="Instructions"
+            android:onClick="@{handler::onInstructionClick}"
             android:textStyle="italic"
             android:typeface="monospace"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,23 +45,23 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/textView22"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/q_a"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="41dp"
-                    android:layout_marginEnd="312dp"
-                    android:text="TextView"
-                    app:layout_constraintBottom_toTopOf="@+id/question_a"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
                 <TextView
-                    android:id="@+id/textView21"
+                    android:id="@+id/q_b"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
-                    android:text="What is Thermodynamics"
+                    android:text="@{assign.question_b}"
                     app:layout_constraintBottom_toTopOf="@+id/question_b"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -62,11 +71,12 @@
                     android:layout_width="0dp"
                     android:layout_height="200dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="64dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
+                    android:hint="Your Answer here"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView19">
+                    app:layout_constraintTop_toBottomOf="@+id/q_a">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/question_a_edit"
@@ -82,6 +92,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="64dp"
                     android:layout_marginEnd="16dp"
+                    android:hint="Answer"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/question_a">
@@ -102,7 +113,7 @@
                     android:layout_marginEnd="8dp"
                     android:gravity="center"
                     android:padding="4dp"
-                    android:text="Themodynamics Assignment"
+                    android:text="Assignment"
                     android:textColor="#673AB7"
                     android:textSize="16sp"
                     android:textStyle="italic"
@@ -134,7 +145,9 @@
                     android:id="@+id/question_c_info"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@{assign.question_c}"
                     android:textColor="#673AB7"
                     android:textStyle="italic"
                     app:layout_constraintBottom_toTopOf="@+id/question_c"
@@ -150,6 +163,7 @@
                     android:layout_marginEnd="32dp"
                     android:layout_marginBottom="32dp"
                     android:text="Submit"
+                    android:onClick="@{handler::onSubmit}"
                     android:textStyle="italic"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

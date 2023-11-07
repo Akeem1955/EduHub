@@ -57,14 +57,16 @@
     <string name="cancel">cancel</string>
     <string name="please_dont_exit_the_app">📂 Please don\'t exit the app while uploading files. Instead, you can simply minimize the app and your uploads will continue in the background. We\'ve made it easy for you to multitask and stay productive! 🚀</string>
     <string name="unable_to_set_assignment_check_your_internet_connection_and_try_again">Unable To set Assignment Check Your Internet Connection And Try Again</string>
-    <string name="correlation_betwen_attendance_and_score">*Correlation Betwen Attendance And Score*</string>
+    <string name="correlation_betwen_attendance_and_score">*Correlation Between Attendance And Score*</string>
     <string name="attendance">Attendance</string>
     <string name="scores">Scores</string>
     <string name="gender_distribution_performance">*Gender Distribution Performance*</string>
     <string name="student_performance">*Student Performance*</string>
     <string name="no_of_student">No Of Student</string>
     <string name="performance_metric">Performance Metric</string>
+    <string name="chat_url">https://api.openai.com/v1/</string>
     <string name="oh_no_the_resource_cupboard_is_bare_but_don_t_worry_we_ll_refill_it_soon_stay_tuned_quot">Oh no, the resource cupboard is bare! 🙁 But don\'t worry, we\'ll refill it soon. 🔄 Stay tuned!\"</string>
-    <string name="unable_to_load_resources_check_your_internet_connection_and_try_again">Unable to load Resources Check Your Internet Connection And try Again...</string>
+    <string name="unable_to_load_resources_check_your_internet_connection_and_try_again">Unable to load Resources Check Your Internet Connection And try Again…</string>
+    <string name="check_your_internet_connection_and_try_again">Check Your Internet COnnection And Try Again...</string>
 
 </resources>
